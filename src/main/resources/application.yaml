@@ -1,0 +1,26 @@
+spring:
+  application:
+    name:
+      ExcelFiles
+  datasource:
+    url: jdbc:mysql://localhost:3000/excelfilesdb?createDatabaseIfNotExist=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 1234e
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: on
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+        max-page-size: 50
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8

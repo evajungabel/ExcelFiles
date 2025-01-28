@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/upload.css}">
+    <title>Excel</title>
+</head>
+
+<body>
+
+    <div>
+        <a class="nav" th:href="@{/index}">Home</a>
+        <a class="nav" th:href="@{/upload-excel-file}">Upload Excel File</a>
+        <a class="nav" th:href="@{/search-excel-file}">Search Excel Files</a>
+    </div>
+
+    
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="excelFile">Upload Excel File</label>
+        <input type="file" id="excelFile" name="excelFile" accept=".xls,.xlsx" />
+        <button type="submit">Upload</button>
+    </form>
+    
+    <div id="result"></div>
+
+
+</body>
+
+</html>
