@@ -1,6 +1,7 @@
 package com.excel.controller;
 
-import java.io.InputStream;
+import java.util.Collections;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.excel.service.ExcelUploadService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -20,21 +23,30 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ExcelUploadController {
 
-    @Autowired
     private ExcelUploadService excelUploadService;
 
+    @Autowired
+    public ExcelUploadController(ExcelUploadService excelUploadService) {
+        this.excelUploadService = excelUploadService;
+    }
+
     @PostMapping()
-    public ResponseEntity<String> uploadExcel(@RequestParam("file") MultipartFile file) {
+    @Operation(summary = "Saving excel files by anybody")
+    @ApiResponse(responseCode = "200", description = "Saved excel files are given by anybody.")
+    public ResponseEntity<Map<String, String>> uploadExcel(@RequestParam("file") MultipartFile file) {
+        log.info("Http request, POST /api/excelupload, with variables: " + file);
         if (file.isEmpty()) {
-            return ResponseEntity.badRequest().body("File is empty");
+            return ResponseEntity.badRequest().body(Collections.singletonMap("message", "File is empty"));
         }
 
         try {
             excelUploadService.uploadExcel(file);
-            return ResponseEntity.ok("File uploaded successfully");
+            log.info("POST data from repository from /api/excelupload, with variable: " + file);
+            return ResponseEntity.ok(Collections.singletonMap("message", "File uploaded successfully"));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Failed to upload file: " + e.getMessage());
+                    .body(Collections.singletonMap("message", "Failed to upload file: " + e.getMessage()));
         }
     }
 }

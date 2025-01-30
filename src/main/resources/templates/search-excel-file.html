@@ -4,19 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/upload.css}">
+    <link rel="stylesheet" th:href="@{/css/background.css}">
+    <link rel="stylesheet" th:href="@{/css/excel-search.css}">
+    <script th:src="@{/js/excel-search.js}"></script>
     <title>Excel</title>
 </head>
 
 <body>
 
-    <div>
+    <div class="options">
         <a class="nav" th:href="@{/index}">Home</a>
         <a class="nav" th:href="@{/upload-excel-file}">Upload Excel File</a>
         <a class="nav" th:href="@{/search-excel-file}">Search Excel Files</a>
     </div>
 
-    
+    <h1>Search</h1>
+    <form id="excelSearchForm">
+        <label for="sort">Sort by:</label>
+        <input type="text" id="sort" name="sort" value="fileName">
+
+        <label for="sortDir">Sort direction:</label>
+        <select id="sortDir" name="sortDir">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+
+        <label for="page">Page:</label>
+        <input type="number" id="page" name="page" value="0" min="0">
+
+        <label for="size">Size:</label>
+        <input type="number" id="size" name="size" value="10" min="1">
+
+        <label for="filter">Filter Criteria:</label>
+        <input type="text" id="filter" name="filter" placeholder="Enter search term">
+
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="results"></div>
+
 
 
 

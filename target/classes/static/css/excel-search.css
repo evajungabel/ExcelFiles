@@ -1,0 +1,63 @@
+h1 {
+    margin: 20px auto;
+}
+
+#excelSearchForm {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#excelSearchForm label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#excelSearchForm input,
+#excelSearchForm select,
+#excelSearchForm button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#excelSearchForm button {
+    background: blueviolet;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#excelSearchForm button:hover {
+    background: rgb(100, 27, 100);
+}
+
+#results {
+    display: none;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    color: black;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#results div {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#results div:last-child {
+    border-bottom: none;
+}

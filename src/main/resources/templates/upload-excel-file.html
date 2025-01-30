@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/background.css}">
     <link rel="stylesheet" th:href="@{/css/upload.css}">
+    <script th:src="@{/js/excel-upload.js}"></script>
     <title>Excel</title>
 </head>
 
 <body>
 
-    <div>
+    <div class="options">
         <a class="nav" th:href="@{/index}">Home</a>
         <a class="nav" th:href="@{/upload-excel-file}">Upload Excel File</a>
         <a class="nav" th:href="@{/search-excel-file}">Search Excel Files</a>
@@ -18,7 +20,7 @@
 
     
     <form id="uploadForm" enctype="multipart/form-data">
-        <label for="excelFile">Upload Excel File</label>
+        <label for="excelFile"><h1>Upload Excel File</h1></label>
         <input type="file" id="excelFile" name="excelFile" accept=".xls,.xlsx" />
         <button type="submit">Upload</button>
     </form>

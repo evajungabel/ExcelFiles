@@ -4,16 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/background.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <title>Excel</title>
 </head>
 
 <body>
 
-    <a class="nav" th:href="@{/index}">Home</a>
-    <a class="nav" th:href="@{/upload-excel-file}">Upload Excel File</a>
-    <a class="nav" th:href="@{/search-excel-file}">Search Excel Files</a>
-                
+    <div class="container">
+        <div class="options">
+            <a class="nav" th:href="@{/index}">Home</a>
+            <a class="nav" th:href="@{/upload-excel-file}">Upload Excel File</a>
+            <a class="nav" th:href="@{/search-excel-file}">Search Excel Files</a>
+        </div>
+    </div>
 
 </body>
 

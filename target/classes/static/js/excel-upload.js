@@ -1,5 +1,6 @@
-const form = document.getElementById('uploadForm');
-    
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('uploadForm');
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -15,7 +16,7 @@ const form = document.getElementById('uploadForm');
         formData.append('file', file);
 
         try {
-            const response = await fetch('/uploadExcel', {
+            const response = await fetch('/api/excelupload', {
                 method: 'POST',
                 body: formData,
             });
@@ -30,3 +31,4 @@ const form = document.getElementById('uploadForm');
             console.error('Error:', error);
         }
     });
+});
